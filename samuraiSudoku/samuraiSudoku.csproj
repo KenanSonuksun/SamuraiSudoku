@@ -47,34 +47,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data.cs" />
-    <Compile Include="HomePage.cs">
+    <Compile Include="Components\Data.cs" />
+    <Compile Include="HomePage\HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HomePage.Designer.cs">
+    <Compile Include="HomePage\HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Thread10.cs">
+    <Compile Include="Thread10\Thread10.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Thread10.Designer.cs">
+    <Compile Include="Thread10\Thread10.Designer.cs">
       <DependentUpon>Thread10.cs</DependentUpon>
     </Compile>
-    <Compile Include="Thread5.cs">
+    <Compile Include="Thread5\Thread5.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Thread5.Designer.cs">
+    <Compile Include="Thread5\Thread5.Designer.cs">
       <DependentUpon>Thread5.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="HomePage.resx">
+    <EmbeddedResource Include="HomePage\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Thread10.resx">
+    <EmbeddedResource Include="Thread10\Thread10.resx">
       <DependentUpon>Thread10.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Thread5.resx">
+    <EmbeddedResource Include="Thread5\Thread5.resx">
       <DependentUpon>Thread5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
