@@ -158,13 +158,13 @@ namespace samuraiSudoku
         }
 
         //to solve sudoku
-        public static void solveSudoku(char[,] matrix)
+        public static void solveSudoku(char[,] matrix,int index)
         {
             if (matrix == null || matrix.Length == 0)
                 return;
-            solve(matrix);
+            solve(matrix,index);
         }
-        private static bool solve(char[,] matrix)
+        private static bool solve(char[,] matrix,int index)
         {
             //to check all elements from the sent sudoku matrix 
             for (int i = 0; i < matrix.GetLength(0); i++)
@@ -184,7 +184,7 @@ namespace samuraiSudoku
                             {
                                 //to assign the selected number to the box
                                 matrix[i, j] = c;
-                                if (solve(matrix))
+                                if (solve(matrix,index))
                                 {
                                     counter++;
                                     timeKeeperForThread5.Stop();
@@ -197,7 +197,7 @@ namespace samuraiSudoku
                                         square = counter,
                                         time = conculusion
                                     };
-                                    streamWriterForThread5.WriteLine("matrisin " + i.ToString() + "-" + j.ToString() + " konumu için seçilen değer = " + c.ToString());
+                                    streamWriterForThread5.WriteLine(index.ToString()+". sudokunun " + i.ToString() + "-" + j.ToString() + " konumu için seçilen değer = " + c.ToString());
                                     streamWriterForThread5.Flush();
                                     graphic1.Add(v);
                                     timeKeeperForThread5.Start();
@@ -271,23 +271,23 @@ namespace samuraiSudoku
         //to save methods
         public void function1()
         {
-            solveSudoku(sudoku1);
+            solveSudoku(sudoku1,1);
         }
         public void function2()
         {
-            solveSudoku(sudoku2);
+            solveSudoku(sudoku2,2);
         }
         public void function3()
         {
-            solveSudoku(sudoku3);
+            solveSudoku(sudoku3,3);
         }
         public void function4()
         {
-            solveSudoku(sudoku4);
+            solveSudoku(sudoku4,4);
         }
         public void function5()
         {
-            solveSudoku(sudoku5);
+            solveSudoku(sudoku5,5);
         }
         //to start thread (5)
         public void solveWith5Thread()

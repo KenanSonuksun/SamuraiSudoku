@@ -157,22 +157,22 @@ namespace samuraiSudoku
             start();
         }
         //to solve sudoku
-        public static void solveSudoku(char[,] matrix)
+        public static void solveSudoku(char[,] matrix,int index)
         {
             if (matrix == null || matrix.Length == 0)
                 return;
-            solve(matrix);
+            solve(matrix,index);
         }
         //to solve sudoku
-        public static void solveSudoku2(char[,] matrix)
+        public static void solveSudoku2(char[,] matrix,int index)
         {
             if (matrix == null || matrix.Length == 0)
                 return;
-            solve2(matrix);
+            solve2(matrix,index);
 
 
         }
-        private static bool solve(char[,] matrix)
+        private static bool solve(char[,] matrix,int index)
         {
             //to check all elements from the sent sudoku matrix 
             for (int i = 0; i < matrix.GetLength(0); i++)
@@ -192,7 +192,7 @@ namespace samuraiSudoku
                             {
                                 //to assign the selected number to the box
                                 matrix[i, j] = c;
-                                if (solve(matrix))
+                                if (solve(matrix,index))
                                 {
                                     counter++;
                                     timeKeeperForThread10.Stop();
@@ -205,7 +205,7 @@ namespace samuraiSudoku
                                         square = counter,
                                         time = conculusion
                                     };
-                                    streamWriterForThread10.WriteLine("matrisin " + i.ToString() + "-" + j.ToString() + " konumu için seçilen değer = " + c.ToString());
+                                    streamWriterForThread10.WriteLine(index.ToString()+". sudokunun " + i.ToString() + "-" + j.ToString() + " konumu için seçilen değer = " + c.ToString());
                                     streamWriterForThread10.Flush();
                                     graphic.Add(v);
                                     timeKeeperForThread10.Start();
@@ -221,7 +221,7 @@ namespace samuraiSudoku
             }
             return true;
         }
-        private static bool solve2(char[,] matrix)
+        private static bool solve2(char[,] matrix,int index)
         {
             for (int i = matrix.GetLength(0) - 1; i >= 0; i--)
             {
@@ -239,7 +239,7 @@ namespace samuraiSudoku
                             {
                                 //to assign the selected number to the box
                                 matrix[i, j] = c;
-                                if (solve2(matrix))
+                                if (solve2(matrix,index))
                                 {
                                     counter++;
                                     timeKeeperForThread10.Stop();
@@ -251,7 +251,7 @@ namespace samuraiSudoku
                                         square = counter,
                                         time = conculusion
                                     };
-                                    streamWriterForThread10.WriteLine( "matrisin " + i.ToString() + "-" + j.ToString() + " konumu için seçilen değer = " + c.ToString());
+                                    streamWriterForThread10.WriteLine(index.ToString() + ". sudokunun " + i.ToString() + "-" + j.ToString() + " konumu için seçilen değer = " + c.ToString());
                                     streamWriterForThread10.Flush();
                                     graphic.Add(v);
                                     timeKeeperForThread10.Start();
@@ -328,43 +328,43 @@ namespace samuraiSudoku
         //to save methods
         public void function1()
         {
-            solveSudoku(sudoku1);
+            solveSudoku(sudoku1,1);
         }
         public void function2()
         {
-            solveSudoku(sudoku2);
+            solveSudoku(sudoku2,2);
         }
         public void function3()
         {
-            solveSudoku(sudoku3);
+            solveSudoku(sudoku3,3);
         }
         public void function4()
         {
-            solveSudoku(sudoku4);
+            solveSudoku(sudoku4,4);
         }
         public void function5()
         {
-            solveSudoku(sudoku5);
+            solveSudoku(sudoku5,5);
         }
         public void function1_2()
         {
-            solveSudoku2(sudoku1);
+            solveSudoku2(sudoku1,1);
         }
         public void function2_2()
         {
-            solveSudoku2(sudoku2);
+            solveSudoku2(sudoku2,2);
         }
         public void function3_2()
         {
-            solveSudoku2(sudoku3);
+            solveSudoku2(sudoku3,3);
         }
         public void function4_2()
         {
-            solveSudoku2(sudoku4);
+            solveSudoku2(sudoku4,4);
         }
         public void function5_2()
         {
-            solveSudoku2(sudoku5);
+            solveSudoku2(sudoku5,5);
         }
         //to start thread (10)
         public void solveWith10Thread()
