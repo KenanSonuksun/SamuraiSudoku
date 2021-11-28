@@ -197,7 +197,7 @@ namespace samuraiSudoku
                                         square = counter,
                                         time = conculusion
                                     };
-                                    streamWriterForThread5.WriteLine("*****" + "matrisin " + i.ToString() + "-" + j.ToString() + " konumu için seçilen değer = " + c.ToString());
+                                    streamWriterForThread5.WriteLine("matrisin " + i.ToString() + "-" + j.ToString() + " konumu için seçilen değer = " + c.ToString());
                                     streamWriterForThread5.Flush();
                                     graphic1.Add(v);
                                     timeKeeperForThread5.Start();
@@ -260,7 +260,6 @@ namespace samuraiSudoku
             convertToChar(sudoku3, 0, 9, 12, 21);
             convertToChar(sudoku4, 12, 21, 12, 21);
         }
-
         public void draw()
         {
             fill(sudoku1, 0, 9, 0, 9);
@@ -290,7 +289,6 @@ namespace samuraiSudoku
         {
             solveSudoku(sudoku5);
         }
-
         //to start thread (5)
         public void solveWith5Thread()
         {
